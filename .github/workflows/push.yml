@@ -1,16 +1,21 @@
-name: Deploy de la pagina
+name: Deploy Code to Release Branch
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+
 jobs:
-  deploy-page:
+  build:
+    name: master
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.1
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action
+        uses: actions/checkout@v4
+
+      # Workflow dispatch event that pushes the current version to the release branch.
+      # From here the secondary production deployment workflow will trigger to build the dependencies.
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: master # The branch the action should deploy to.
-          folder: . #The folder the action should deploy.
+          branch: master
+          folder: .
+          clean: false
+          single-commit: true
