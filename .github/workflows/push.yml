@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.1
       - name: Deploy
-        uses: James Ives/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action
         with:
           branch: master # The branch the action should deploy to.
           folder: . #The folder the action should deploy.
