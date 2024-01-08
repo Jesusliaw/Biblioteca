@@ -6,7 +6,7 @@ $rol = $_POST['rol'];
 session_start();
 $_SESSION['correo'] = $correo;
 
-$conexion = mysqli_connect("localhost", "root", "1140", "libreriaonlinesanta");
+$conexion = mysqli_connect("localhost", "id21535450_admin", "Primeserver007", "id21535450_motoclauslibrarydb");
 
 $consulta = "SELECT * FROM usuario_acceso WHERE correo='$correo' AND contrasenia='$contrasenia'";
 $resultado = mysqli_query($conexion, $consulta);
